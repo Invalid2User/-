@@ -7,12 +7,4 @@ public class Smartphone extends Product {
         super(id, name, cost);
         this.maker = maker;
     }
-
-    public void setMaker(String maker){
-        this.maker = maker;
-    }
-
-    public String getMaker(){
-        return maker;
-    }
 }

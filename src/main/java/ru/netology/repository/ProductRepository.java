@@ -5,7 +5,7 @@ import ru.netology.domain.Product;
 public class ProductRepository {
     private Product[] products = new Product[0];
 
-    public void save(Product product){
+    public void save(Product product) {
         Product[] tmp = new Product[products.length + 1];
         for (int i = 0; i < products.length; i++) {
             tmp[i] = products[i];
@@ -21,9 +21,12 @@ public class ProductRepository {
     public void remove(int id) {
         Product[] tmp = new Product[products.length - 1];
         int copyToIndex = 0;
-        for (products product:
-             ) {
-            
+        for (Product product : products) {
+            if (product.getId() != id) {
+                tmp[copyToIndex] = product;
+                copyToIndex++;
+            }
         }
+        products = tmp;
     }
 }
