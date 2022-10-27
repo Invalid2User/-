@@ -3,13 +3,13 @@ package ru.netology.domain;
 import ru.netology.repository.ProductRepository;
 
 public class ProductManager {
-     private ProductRepository repository;
+    private ProductRepository repository;
 
     public ProductManager(ProductRepository products) {
         this.repository = products;
     }
 
-    public void add(Product product){
+    public void add(Product product) {
         repository.save(product);
     }
 
@@ -17,9 +17,9 @@ public class ProductManager {
         Product[] result = new Product[0];
         for (Product product : repository.findAll()) {
             if (matches(product, text)) {
-                Product[] tmp = new Product[result.length+1];
+                Product[] tmp = new Product[result.length + 1];
                 for (int i = 0; i < result.length; i++) {
-                    tmp[i]=result[i];
+                    tmp[i] = result[i];
                 }
                 tmp[tmp.length - 1] = product;
                 result = tmp;
@@ -27,6 +27,7 @@ public class ProductManager {
         }
         return result;
     }
+
     public boolean matches(Product repository, String search) {
         return repository.getName().contains(search);
     }
